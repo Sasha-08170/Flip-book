@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полювання на Альдеїну</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="book-container">
+    <div class="book">
+        <!-- Page 1 (Front Cover) -->
+        <div class="page page-1 front-cover" data-page="1">
+            <h1>Книга в HTML, CSS, JavaScript</h1>
+            <p>Натисніть, щоб перегорнути сторінку й зануритися в історію</p>
+        </div>
+
+        <!-- Page 2 (Inside Front Cover) -->
+        <div class="page page-2" data-page="2">
+            <h2>Вступ</h2>
+            <p>Перед вами старовинна хроніка, що збереглася з часів, коли мисливці вирушали у небезпечні мандри за Альдеїною — істотою легенд і тіней.</p>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="page page-3" data-page="3">
+            <h2>Легенда</h2>
+            <p>Альдеїна — створіння, про яке ходили чутки серед рибалок і мандрівників. Казали, що вона мешкає у темних лісах на півночі та володіє силою, здатною змінити долю цілих поселень. Багато хто намагався знайти її, та ніхто не повертався.</p>
+        </div>
+
+        <!-- Page 4 -->
+        <div class="page page-4" data-page="4">
+            <h2>Подорож</h2>
+            <p>Група сміливців вирушила у мандрівку: мисливець Орест, знахарка Лада та юний провідник Микита. Вони знали, що дорога буде сповнена небезпек, але сподівалися розкрити таємницю істоти.</p>
+        </div>
+
+        <!-- Page 5 -->
+        <div class="page page-5" data-page="5">
+            <h2>Ліс тіней</h2>
+            <p>Ліс зустрів їх шурхотом листя і далеким виттям. Повітря було густим, наче саме час застиг між деревами. Кожна тінь могла виявитися пасткою, кожен крок лунав занадто гучно.</p>
+        </div>
+
+        <!-- Page 6 -->
+        <div class="page page-6" data-page="6">
+            <h2>Сліди</h2>
+            <p>На вологому ґрунті вони побачили відбитки лап, надто великі для вовка і надто дивні для звіра. Орест нахилився й тихо прошепотів: «Вона близько…»</p>
+        </div>
+
+        <!-- Page 7 -->
+        <div class="page page-7" data-page="7">
+            <h2>Нічний шепіт</h2>
+            <p>Уночі вогнище тріщало, а з глибини лісу лунали голоси. Лада відчула холодний подих біля вуха, та поряд нікого не було. Микита тремтів, а Орест стискав меч ще міцніше.</p>
+        </div>
+
+        <!-- Page 8 -->
+        <div class="page page-8" data-page="8">
+            <h2>Зустріч</h2>
+            <p>На світанку з туману з’явилася постать — висока, з очима, що світилися бурштиновим полум’ям. Альдеїна не виглядала звіром — радше тінню, що набула тіла. Її погляд пронизував душу.</p>
+        </div>
+
+        <!-- Page 9 -->
+        <div class="page page-9" data-page="9">
+            <h2>Вибір</h2>
+            <p>Вона заговорила людським голосом: «Ті, хто шукає мене, шукають владу. Але знай: я дарую не силу, а випробування. Прийміть мене — і зміниться ваше серце назавжди». Лише один крок вирішував їхню долю.</p>
+        </div>
+
+        <!-- Page 10 (Back Cover) -->
+        <div class="page page-10 back-cover" data-page="10">
+            <h2>Кінець</h2>
+            <p>Що сталося далі — знають тільки ті, хто наважився дивитися Альдеїні в очі. Хроніка обривається, залишаючи нам лише тіні та здогади. Дякуємо за подорож у легенду!</p>
+        </div>
+    </div>
+</div>
+
+<div class="controls">
+    <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+    <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* ==== ГЛОБАЛ ==== */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #e8d9b9;
+    perspective: 1200px;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #0d0d0d 0%, #121212 60%, #0a0a0a 100%);
+}
+
+/* Дымка / магический туман */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(60, 255, 150, 0.08), transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(200, 255, 180, 0.07), transparent 70%);
+    animation: fogMove 20s infinite alternate ease-in-out;
+    z-index: 0;
+}
+@keyframes fogMove {
+    0% { transform: translate(-5%, -5%) scale(1); }
+    100% { transform: translate(5%, 5%) scale(1.1); }
+}
+
+/* ==== КНИГА ==== */
+.book-container {
+    width: 90vw;
+    height: 90vh;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 100px rgba(100, 255, 180, 0.15);
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* ==== СТРАНИЦЫ ==== */
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #f8f1da;
+    background-image: 
+        url('https://www.transparenttextures.com/patterns/old-wall.png'),
+        radial-gradient(circle at top left, rgba(0,0,0,0.08), transparent 70%),
+        radial-gradient(circle at bottom right, rgba(0,0,0,0.08), transparent 70%);
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    font-size: 1.15em;
+    line-height: 1.7;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease-in-out, z-index 0s 0.4s;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.25);
+    color: #2c1f1f;
+}
+
+/* Чётные / нечетные */
+.page:nth-child(odd) {
+    left: 50%;
+    transform-origin: left;
+}
+
+.page:nth-child(even) {
+    left: 0;
+    transform-origin: right;
+}
+
+/* ==== ОБЛОЖКА ==== */
+.page.cover {
+    background: linear-gradient(135deg, #274d3d, #152820);
+    color: #f4e1c1;
+    font-size: 2.3em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+    border: 4px solid #d4af37;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 60px rgba(180,255,200,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Задняя обложка */
+.back-cover {
+    background: linear-gradient(135deg, #274d3d, #152820);
+    color: #f4e1c1;
+    font-size: 1.6em;
+    font-weight: bold;
+    left: 50%;
+    transform-origin: left;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #d4af37;
+    box-shadow: inset 0 0 60px rgba(180,255,200,0.2);
+}
+
+/* ==== ПЕРЕВОРОТ ==== */
+.page.flipped {
+    transform: rotateY(-180deg);
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.35);
+    z-index: 10;
+}
+
+/* ==== СЛОИ ==== */
+.page[data-page="1"] { z-index: 10; }
+.page[data-page="2"] { z-index: 9; }
+.page[data-page="3"] { z-index: 8; }
+.page[data-page="4"] { z-index: 7; }
+.page[data-page="5"] { z-index: 6; }
+.page[data-page="6"] { z-index: 5; }
+.page[data-page="7"] { z-index: 4; }
+.page[data-page="8"] { z-index: 3; }
+.page[data-page="9"] { z-index: 2; }
+.page[data-page="10"] { z-index: 1; }
+
+/* ==== КНОПКИ ==== */
+.controls {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+    z-index: 1000;
+}
+
+.controls button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    background: radial-gradient(circle at center, #3c2f2f, #1a1414);
+    color: #d4af37;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(100,255,180,0.25), 0 0 10px rgba(0,0,0,0.6);
+}
+
+.controls button:hover {
+    background: radial-gradient(circle at center, #5a4444, #2a1f1f);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(100,255,180,0.5), 0 0 12px rgba(0,0,0,0.8);
+}
+
+.controls button:active {
+    transform: scale(0.95);
+}
+
+
+
+
